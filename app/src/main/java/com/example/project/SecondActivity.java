@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SecondActivity extends AppCompatActivity {
 
-    TextView textViewText;
+    EditText textViewText;
     SharedPreferences preferences;
     private Button buttonToMain;
 
@@ -24,20 +25,18 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
         Log.d("==>","2nd Act Created");
 
-        textViewText = findViewById(R.id.name);
+        textViewText = findViewById(R.id.textviewtext);
 
         preferences = getSharedPreferences("preferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("name","Richard");
-        editor.apply();
 
         buttonToMain = findViewById(R.id.buttontomain);
         buttonToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("==>", "onClick");
-                Intent intent = new Intent(SecondActivity.this, MainActivity.class);
-                startActivity(intent);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("name",textViewText.getText().toString());
+                editor.apply();
+                finish();
             }
         });
     }

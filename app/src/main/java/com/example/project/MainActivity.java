@@ -13,7 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView TextViewName;
+    TextView textViewName;
     SharedPreferences preferences;
     private Button nextPage;
 
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Log.d("==>", "onCreate: ");
 
-        TextViewName = findViewById(R.id.name);
+        textViewName = findViewById(R.id.name);
 
         preferences = getSharedPreferences("preferences", MODE_PRIVATE);
 
@@ -47,6 +47,6 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         String name = preferences.getString("name","No name found");
-        TextViewName.setText(name);
+        textViewName.setText(name);
     }
 }
