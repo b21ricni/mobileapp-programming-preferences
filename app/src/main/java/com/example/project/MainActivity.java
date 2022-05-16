@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         preferences = getSharedPreferences("preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        //editor.putString("name","Richard");
+        editor.putString("name","Richard");
         editor.apply();
 
         nextPage = findViewById(R.id.nextpage);
