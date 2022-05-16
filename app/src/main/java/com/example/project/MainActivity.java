@@ -28,9 +28,6 @@ public class MainActivity extends AppCompatActivity {
         TextViewName = findViewById(R.id.name);
 
         preferences = getSharedPreferences("preferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("name","Richard");
-        editor.apply();
 
         nextPage = findViewById(R.id.nextpage);
         nextPage.setOnClickListener(new View.OnClickListener() {
