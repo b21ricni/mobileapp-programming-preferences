@@ -11,6 +11,7 @@ clickhandler till för att gå från 2nd activity till main, men skrev fel kod f
 för att använda finish så man återgår till main så skapade den nya akiviter, vilket snabbt fixades
 Och tillsist så lades till shared pref koden i 2nd activity knappen så när den trycks så skickar den 
 information som är skriven i edit text till textView.setText(name). Funkar som smör på bröd!
+(FÖRSTA TEXTEN ÄR O ANVÄNDBAR MEN ÄR FÖR LAT FÖR ATT TA BORT OCH ÄNDRA NAMN PÅ KNAPP)
 
 ```
 //MainActivity.java
@@ -36,7 +37,9 @@ information som är skriven i edit text till textView.setText(name). Funkar som 
 
 Bilder läggs i samma mapp som markdown-filen.
 
-![](android.png)
+![](MainOnStart.png)
+![](2ndAct.png)
+![](MainAfterSharedPref.png)
 
 Läs gärna:
 
