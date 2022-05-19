@@ -1,34 +1,37 @@
 
 # Rapport
 
-**Skriv din rapport här!**
-
-_Du kan ta bort all text som finns sedan tidigare_.
-
-## Följande grundsyn gäller dugga-svar:
-
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
-
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
+Först så skrevs kod för att testa hur shared preference fungerar, och variabeln blev linkad till en
+text, efter det så skapades en SecondActivity class och en activity_second layout resourace file.
+Efter det så lades knappar och text/edit text rutor till som skall användas för att överföra 
+information från 2nd activity till mains shared pref. Sedan så lades logcat och clickhandler till 
+för att gå från main till 2nd activity  och för att se vad som fungerar och vad som ej fungerar
+(Programet krashade och löste det med hjälp av att se vart den sluta fungera), sedan så lades 
+clickhandler till för att gå från 2nd activity till main, men skrev fel kod först så istället
+för att använda finish så man återgår till main så skapade den nya akiviter, vilket snabbt fixades
+Och tillsist så lades till shared pref koden i 2nd activity knappen så när den trycks så skickar den 
+information som är skriven i edit text till textView.setText(name). Funkar som smör på bröd!
 
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
-    }
-}
+//MainActivity.java
+    @Override
+        protected void onResume() {
+            super.onResume();
+    
+            String name = preferences.getString("name","No name found");
+            textViewName.setText(name);
+        }
+    
+    //SecondActivity.java
+    buttonToMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("name",textViewText.getText().toString());
+                editor.apply();
+                finish();
+            }
+        });
 ```
 
 Bilder läggs i samma mapp som markdown-filen.
