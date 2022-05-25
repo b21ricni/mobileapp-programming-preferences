@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textViewName;
     SharedPreferences preferences;
-    private Button nextPage;
+            private Button nextPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("==>", "onClick");
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 startActivity(intent);
+
             }
         });
 
